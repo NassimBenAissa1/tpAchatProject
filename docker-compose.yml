@@ -9,19 +9,17 @@ services:
     environment:
         - MYSQL_DATABASE=tpachato
         - MYSQL_ROOT_PASSWORD=root
-    networks: 
-      - bored-network
+
 
   tpachatproject:
     container_name: tpAchatProject
     image: tpachatproject
     build: ./
     ports:
-      - "8083:8083"
+      - "8089:8089"
     depends_on:
       - mysqldb
-    networks: 
-      - bored-network
+
     environment:
       - spring.datasource.url=jdbc:mysql://mysqldb:3306/tpachato?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true
       - spring.datasource.username=root
@@ -29,7 +27,3 @@ services:
       - spring.jpa.show-sql=true
       - spring.jpa.hibernate.ddl-auto=update
       - spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
-networks:
-  bored-network:
-    name: bored-network
-        
