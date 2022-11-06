@@ -112,7 +112,6 @@
 				</dependencies>
 			</plugin>
 		</plugins>
-		<finalName>tpachatproject</finalName>
 	</build>
 	<distributionManagement>
 		<repository>
